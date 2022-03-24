@@ -8,11 +8,11 @@ pageextension 50100 "CSD ResourceCardExt" extends "Resource Card"
         {
             field("CSD Resource Type"; Rec."CSD Resource Type")
             {
-
+                ApplicationArea = All;
             }
             field("CSD Quantity Per Day"; Rec."CSD Quantity Per Day")
             {
-
+                ApplicationArea = All;
             }
 
         }
