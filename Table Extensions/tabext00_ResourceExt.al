@@ -13,27 +13,25 @@ tableextension 50100 "CSD ResourceExt" extends Resource
             end;
 
         }
-        modify(Type)
-        {
-            OptionCaption = 'Instructor,Room';
 
-        }
-
-        field(50101; "CSD Resource Type"; Option)
+        field(50101; "CSD Resource Type"; Enum "CSD Resource Type")
         {
             Caption = 'Resource Type';
-            OptionMembers = "Internal","External";
-            OptionCaption = 'Internal,External';
+            DataClassification = ToBeClassified;
         }
 
         field(50102; "CSD Maximum Partecipants"; Integer)
         {
             Caption = 'Maximum Partecipants';
+            DataClassification = ToBeClassified;
+
         }
 
         field(50103; "CSD Quantity Per Day"; Decimal)
         {
             Caption = 'Quantity Per Day';
+            DataClassification = ToBeClassified;
+
         }
 
     }
