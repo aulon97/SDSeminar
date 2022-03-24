@@ -7,6 +7,7 @@ pageextension 50101 "CSD ResourceListExt" extends "Resource List"
         modify(Type)
         {
             Visible = Showtype;
+
         }
 
         addafter(Type)
