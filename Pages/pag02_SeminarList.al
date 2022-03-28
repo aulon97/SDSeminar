@@ -1,35 +1,25 @@
-page 50101 "CSD Seminar Card"
+page 50102 "CSD Seminar List"
 {
-    PageType = Card;
+    PageType = List;
+    ApplicationArea = All;
+    UsageCategory = Lists;
     SourceTable = "CSD Seminar";
-    Caption = 'Seminar Card';
+    Editable = false;
+    CardPageId = 50101;
 
     layout
     {
         area(Content)
         {
-            group(General)
+            group(Repeater)
             {
                 field("No."; Rec."No.")
                 {
-                    Caption = 'No.';
                     ApplicationArea = All;
-                    AssistEdit = true;
 
-                    trigger OnAssistEdit()
-                    begin
-                        if Rec.AssistEdit then
-                            CurrPage.Update;
-
-                    end;
                 }
 
-                field("Name"; Rec.Name)
-                {
-                    ApplicationArea = All;
-                }
-
-                field("Search Name"; Rec."Search Name")
+                field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
                 }
@@ -39,43 +29,21 @@ page 50101 "CSD Seminar Card"
                     ApplicationArea = All;
                 }
 
-                field("Minimum Partecipations"; Rec."Minimum Partecipants")
-                {
-                    ApplicationArea = All;
-                }
-
-                field("Maximum Partecipations"; Rec."Maximum Partecipants")
-                {
-                    ApplicationArea = All;
-                }
-
-                field("Blocked"; Rec.Blocked)
-                {
-                    ApplicationArea = All;
-                }
-
-                field("Last Date Modified"; Rec."Last Date Modified")
-                {
-                    ApplicationArea = All;
-                }
-            }
-
-            group(Invoicing)
-            {
-                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
-                {
-                    ApplicationArea = All;
-                }
-
-                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
-                {
-                    ApplicationArea = All;
-                }
-
                 field("Seminar Price"; Rec."Seminar Price")
                 {
                     ApplicationArea = All;
                 }
+
+                field("Minimum Partecipants"; Rec."Minimum Partecipants")
+                {
+                    ApplicationArea = All;
+                }
+
+                field("Maximum Partecipants"; Rec."Maximum Partecipants")
+                {
+                    ApplicationArea = All;
+                }
+
             }
         }
 
@@ -92,7 +60,6 @@ page 50101 "CSD Seminar Card"
             }
         }
     }
-
 
     actions
     {
@@ -115,4 +82,6 @@ page 50101 "CSD Seminar Card"
         }
     }
 
+    var
+        myInt: Integer;
 }
