@@ -4,6 +4,8 @@ page 50107 "CSD Seminar Comment List"
     SourceTable = "CSD Seminar Comment Line";
     Caption = 'Seminar Comment List';
     Editable = false;
+    UsageCategory = Lists;
+    ApplicationArea = All;
 
     layout
     {
@@ -13,15 +15,18 @@ page 50107 "CSD Seminar Comment List"
             {
                 field(Date; Rec.Date)
                 {
+                    ApplicationArea = All;
                 }
 
                 field(Code; Rec.Code)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
 
                 field("Comment"; Rec.Comment)
                 {
+                    ApplicationArea = All;
                 }
 
             }
