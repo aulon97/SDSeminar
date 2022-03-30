@@ -12,7 +12,7 @@ page 50102 "CSD Seminar List"
     {
         area(Content)
         {
-            group(Repeater)
+            repeater(group)
             {
                 field("No."; Rec."No.")
                 {
@@ -33,6 +33,8 @@ page 50102 "CSD Seminar List"
                 field("Seminar Price"; Rec."Seminar Price")
                 {
                     ApplicationArea = All;
+                    AutoFormatType = 10;
+                    AutoFormatExpression = '1,EUR';
                 }
 
                 field("Minimum Partecipants"; Rec."Minimum Partecipants")
@@ -76,7 +78,8 @@ page 50102 "CSD Seminar List"
                     Image = Comment;
                     ApplicationArea = All;
                     PromotedOnly = true;
-
+                    RunObject = page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
                 }
 
             }

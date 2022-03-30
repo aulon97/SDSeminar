@@ -31,7 +31,7 @@ pageextension 50101 "CSD ResourceListExt" extends "Resource List"
     begin
 
         Showtype := (Rec.GetFilter(Type) = '');
-        ShowMaxField := (Rec.GetFilter(Type) = format(Rec.Type::Machine));
+        ShowMaxField := (Rec.GetFilter(Type) = format(Rec.Type::Room));
 
 
     end;
