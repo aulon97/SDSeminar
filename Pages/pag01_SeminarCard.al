@@ -37,6 +37,7 @@ page 50101 "CSD Seminar Card"
                 field("Seminar Duration"; Rec."Seminar Duration")
                 {
                     ApplicationArea = All;
+                    Style = StrongAccent;
                 }
 
                 field("Minimum Partecipations"; Rec."Minimum Partecipants")
@@ -58,6 +59,10 @@ page 50101 "CSD Seminar Card"
                 {
                     ApplicationArea = All;
                 }
+
+
+
+
             }
 
             group(Invoicing)
@@ -75,6 +80,9 @@ page 50101 "CSD Seminar Card"
                 field("Seminar Price"; Rec."Seminar Price")
                 {
                     ApplicationArea = All;
+                    AutoFormatType = 10;
+                    AutoFormatExpression = '1,EUR';
+                    Style = Favorable;
                 }
             }
         }

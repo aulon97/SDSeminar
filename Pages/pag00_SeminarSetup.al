@@ -31,12 +31,10 @@ page 50100 "CSD Seminar Setup"
 
     trigger OnOpenPage()
     begin
-            if not Rec.get then begin
-
-                Rec.init;
-
-                Rec.insert;
-            end;
+        if not Rec.get then begin
+            Rec.init;
+            Rec.insert;
+        end;
     end;
 
 }

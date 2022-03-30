@@ -92,7 +92,7 @@ table 50101 "CSD Seminar"
 
         field(120; "VAT Prod. Posting Group"; Code[10])
         {
-            Caption = 'VAt Prod. Posting Group';
+            Caption = 'VAT Prod. Posting Group';
             TableRelation = "VAT Product Posting Group";
         }
 
@@ -123,6 +123,8 @@ table 50101 "CSD Seminar"
         GenProdPostingGroup: Record "Gen. Product Posting Group";
         NoSeriesMgt: Codeunit NoSeriesManagement;
 
+        Text001: Label 'Maximum Partecipants must be equal or greater then minimum partecipants';
+
     trigger OnInsert()
     begin
         if "No." = '' then begin
@@ -131,11 +133,20 @@ table 50101 "CSD Seminar"
             NoSeriesMgt.InitSeries(SeminarSetup."Seminar Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
+        if "Maximum Partecipants" < "Minimum Partecipants" then begin
+            //Error(Text001, "Maximum Partecipants");
+            Message(Text001);
+        end;
     end;
 
     trigger OnModify()
     begin
         "Last Date Modified" := Today;
+
+        if "Maximum Partecipants" < "Minimum Partecipants" then begin
+            Error(Text001, "Maximum Partecipants");
+            Message(Text001);
+        end;
     end;
 
     trigger OnDelete()

@@ -11,7 +11,7 @@ page 50107 "CSD Seminar Comment List"
     {
         area(Content)
         {
-            group(Repeater)
+            repeater(group)
             {
                 field(Date; Rec.Date)
                 {
