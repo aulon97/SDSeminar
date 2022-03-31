@@ -12,6 +12,7 @@ table 50110 "CSD Seminar Reg. Header"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -25,6 +26,7 @@ table 50110 "CSD Seminar Reg. Header"
         field(2; "Starting Date"; Date)
         {
             Caption = 'Starting Date';
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -36,6 +38,8 @@ table 50110 "CSD Seminar Reg. Header"
         {
             TableRelation = "CSD Seminar";
             Caption = 'Seminar No.';
+            DataClassification = ToBeClassified;
+
 
             trigger OnValidate();
             begin
@@ -68,11 +72,15 @@ table 50110 "CSD Seminar Reg. Header"
         field(4; "Seminar Name"; Text[50])
         {
             Caption = 'Seminar Name';
+            DataClassification = ToBeClassified;
+
         }
         field(5; "Instructor Code"; Code[10])
         {
             TableRelation = Resource where(Type = const(Person));
             Caption = 'Instructor Code';
+            DataClassification = ToBeClassified;
+
 
             trigger OnValidate();
             begin
@@ -86,30 +94,36 @@ table 50110 "CSD Seminar Reg. Header"
             Editable = false;
             FieldClass = FlowField;
             Caption = 'Instructor Name';
+
         }
         field(7; Status; Option)
         {
             OptionCaption = 'Planning,Registration,Closed,Canceled';
             OptionMembers = Planning,Registration,Closed,Canceled;
             Caption = 'Status';
+            DataClassification = ToBeClassified;
         }
         field(8; Duration; Decimal)
         {
             DecimalPlaces = 0 : 1;
             Caption = 'Duration';
+            DataClassification = ToBeClassified;
         }
         field(9; "Maximum Participants"; Integer)
         {
             Caption = 'Maximum Partecipants';
+            DataClassification = ToBeClassified;
         }
         field(10; "Minimum Participants"; Integer)
         {
             Caption = 'Minimum Partecipants';
+            DataClassification = ToBeClassified;
         }
         field(11; "Room Code"; Code[10])
         {
             TableRelation = Resource where(Type = const(Machine));
             Caption = 'Room Code';
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -151,20 +165,24 @@ table 50110 "CSD Seminar Reg. Header"
         field(12; "Room Name"; Text[30])
         {
             Caption = 'Room Name';
+            DataClassification = ToBeClassified;
         }
         field(13; "Room Address"; Text[30])
         {
             Caption = 'Room Address';
+            DataClassification = ToBeClassified;
         }
         field(14; "Room Address 2"; Text[30])
         {
             Caption = 'Room Address 2';
+            DataClassification = ToBeClassified;
         }
         field(15; "Room Post Code"; Code[20])
         {
             TableRelation = "Post Code".Code;
             ValidateTableRelation = false;
             Caption = 'Room Post Code';
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -174,6 +192,7 @@ table 50110 "CSD Seminar Reg. Header"
         field(16; "Room City"; Text[30])
         {
             Caption = 'Room City';
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -184,15 +203,18 @@ table 50110 "CSD Seminar Reg. Header"
         {
             TableRelation = "Country/Region";
             Caption = 'Room Country/Reg. Code';
+            DataClassification = ToBeClassified;
         }
         field(18; "Room County"; Text[30])
         {
             Caption = 'Room County';
+            DataClassification = ToBeClassified;
         }
         field(19; "Seminar Price"; Decimal)
         {
             AutoFormatType = 1;
             Caption = 'Seminar Price';
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -220,11 +242,13 @@ table 50110 "CSD Seminar Reg. Header"
         {
             TableRelation = "Gen. Product Posting Group".Code;
             Caption = 'Gen. Product Posting Group';
+            DataClassification = ToBeClassified;
         }
         field(21; "VAT Prod. Posting Group"; Code[10])
         {
             TableRelation = "VAT Product Posting Group".Code;
             Caption = 'VAT Product Posting Group';
+            DataClassification = ToBeClassified;
         }
         field(22; Comment; Boolean)
         {
@@ -237,40 +261,45 @@ table 50110 "CSD Seminar Reg. Header"
         field(23; "Posting Date"; Date)
         {
             Caption = 'Posting Date';
+            DataClassification = ToBeClassified;
         }
         field(24; "Document Date"; Date)
         {
             Caption = ' Document Date';
+            DataClassification = ToBeClassified;
         }
         field(25; "Reason Code"; Code[10])
         {
             TableRelation = "Reason Code".Code;
             Caption = 'Reason Code';
+            DataClassification = ToBeClassified;
         }
         field(26; "No. Series"; Code[10])
         {
             Editable = false;
             Caption = 'No. Series';
             TableRelation = "No. Series".Code;
+            DataClassification = ToBeClassified;
         }
         field(27; "Posting No. Series"; Code[10])
         {
             TableRelation = "No. Series".Code;
             Caption = 'Posting No. Series';
+            DataClassification = ToBeClassified;
 
             trigger OnLookup();
             begin
-                with SeminarRegHeader do begin
-                    SeminarRegHeader := Rec;
-                    SeminarSetup.GET;
-                    SeminarSetup.TestField("Seminar Registration Nos.");
-                    SeminarSetup.TestField("Posted Seminar Reg. Nos.");
-                    if NoSeriesMgt.LookupSeries(SeminarSetup."Posted Seminar Reg. Nos.", "Posting No. Series")
-                    then begin
-                        VALIDATE("Posting No. Series");
-                    end;
-                    Rec := SeminarRegHeader;
+
+                SeminarRegHeader := Rec;
+                SeminarSetup.GET;
+                SeminarSetup.TestField("Seminar Registration Nos.");
+                SeminarSetup.TestField("Posted Seminar Reg. Nos.");
+                if NoSeriesMgt.LookupSeries(SeminarSetup."Posted Seminar Reg. Nos.", SeminarRegHeader."Posting No. Series")
+                then begin
+                    VALIDATE("Posting No. Series");
                 end;
+                Rec := SeminarRegHeader;
+
             end;
 
             trigger OnValidate();
@@ -287,6 +316,7 @@ table 50110 "CSD Seminar Reg. Header"
         field(28; "Posting No."; Code[20])
         {
             Caption = 'Posting No.';
+            DataClassification = ToBeClassified;
         }
 
     }
@@ -320,6 +350,10 @@ table 50110 "CSD Seminar Reg. Header"
 
     trigger OnDelete();
     begin
+        if (CurrFieldNo > 0) then  //CurrFieldNo variabel qe kthen numrin fushes ku ndodhet kursori
+            TestField(Status, Status::Canceled);
+
+
         SeminarRegLine.RESET;
         SeminarRegLine.SETRANGE("Document No.", "No.");
         SeminarRegLine.SETRANGE(Registered, true);
@@ -351,27 +385,36 @@ table 50110 "CSD Seminar Reg. Header"
             NoSeriesMgt.InitSeries(SeminarSetup."Seminar Registration Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
+        InitRecord();
+    end;
+
+
+    procedure InitRecord()  //inicializon rekordet
+    begin
         if "Posting Date" = 0D then
             "Posting Date" := WORKDATE;
         "Document Date" := WORKDATE;
         SeminarSetup.GET;
         NoSeriesMgt.SetDefaultSeries("Posting No. Series", SeminarSetup."Posted Seminar Reg. Nos.");
+
     end;
+
+
 
     procedure AssistEdit(OldSeminarRegHeader: Record "CSD Seminar Reg. Header"): Boolean;
     begin
-        with SeminarRegHeader do begin
-            SeminarRegHeader := Rec;
+
+        SeminarRegHeader := Rec;
+        SeminarSetup.GET;
+        SeminarSetup.TestField("Seminar Registration Nos.");
+        if NoSeriesMgt.SelectSeries(SeminarSetup."Seminar Registration Nos.", OldSeminarRegHeader."No. Series", SeminarRegHeader."No. Series") then begin
             SeminarSetup.GET;
             SeminarSetup.TestField("Seminar Registration Nos.");
-            if NoSeriesMgt.SelectSeries(SeminarSetup."Seminar Registration Nos.", OldSeminarRegHeader."No. Series", "No. Series") then begin
-                SeminarSetup.GET;
-                SeminarSetup.TestField("Seminar Registration Nos.");
-                NoSeriesMgt.SetSeries("No.");
-                Rec := SeminarRegHeader;
-                exit(true);
-            end;
+            NoSeriesMgt.SetSeries(SeminarRegHeader."No.");
+            Rec := SeminarRegHeader;
+            exit(true);
         end;
+
     end;
 }
 

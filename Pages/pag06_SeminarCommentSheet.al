@@ -10,7 +10,7 @@ page 50106 "CSD Seminar Comment Sheet"
     {
         area(Content)
         {
-            group(Repeater)
+            repeater(group)
             {
                 field(Date; Rec.Date)
                 {
@@ -31,6 +31,5 @@ page 50106 "CSD Seminar Comment Sheet"
             }
         }
     }
-
 
 }

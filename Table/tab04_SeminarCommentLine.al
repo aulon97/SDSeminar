@@ -65,12 +65,12 @@ table 50104 "CSD Seminar Comment Line"
 
     trigger OnInsert()
     begin
+        ;
 
     end;
 
     trigger OnModify()
     begin
-
     end;
 
     trigger OnDelete()
