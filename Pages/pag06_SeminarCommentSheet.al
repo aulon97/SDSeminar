@@ -3,14 +3,15 @@ page 50106 "CSD Seminar Comment Sheet"
     PageType = List;
     SourceTable = "CSD Seminar Comment Line";
     Caption = 'Seminar Comment Sheet';
-
+    AutoSplitKey = true;
+    //UsageCategory = Lists;
 
 
     layout
     {
         area(Content)
         {
-            group(Repeater)
+            repeater(group)
             {
                 field(Date; Rec.Date)
                 {
@@ -32,5 +33,9 @@ page 50106 "CSD Seminar Comment Sheet"
         }
     }
 
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        Rec.SetupNewLine();
+    end;
 
 }

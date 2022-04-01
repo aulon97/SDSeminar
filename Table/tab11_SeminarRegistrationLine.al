@@ -81,25 +81,30 @@ table 50111 "CSD Seminar Registration Line"
         {
             Caption = 'Registration Date';
             Editable = false;
+            DataClassification = ToBeClassified;
         }
         field(7; "To Invoice"; Boolean)
         {
             Caption = 'To Invoice';
             InitValue = true;
+            DataClassification = ToBeClassified;
         }
         field(8; Participated; Boolean)
         {
             Caption = 'Participated';
+            DataClassification = ToBeClassified;
         }
         field(9; "Confirmation Date"; Date)
         {
             Caption = 'Confirmation Date';
             Editable = false;
+            DataClassification = ToBeClassified;
         }
         field(10; "Seminar Price"; Decimal)
         {
             Caption = 'Seminar Price';
             AutoFormatType = 2;
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -112,6 +117,7 @@ table 50111 "CSD Seminar Registration Line"
             DecimalPlaces = 0 : 5;
             MaxValue = 100;
             MinValue = 0;
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -128,6 +134,7 @@ table 50111 "CSD Seminar Registration Line"
         {
             Caption = 'Line Discount Amount';
             AutoFormatType = 1;
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -144,6 +151,7 @@ table 50111 "CSD Seminar Registration Line"
         {
             Caption = 'Amount';
             AutoFormatType = 1;
+            DataClassification = ToBeClassified;
 
             trigger OnValidate();
             begin
@@ -163,6 +171,7 @@ table 50111 "CSD Seminar Registration Line"
         {
             Caption = 'Registered';
             Editable = false;
+            DataClassification = ToBeClassified;
         }
     }
 

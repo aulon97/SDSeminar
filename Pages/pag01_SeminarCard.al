@@ -116,6 +116,8 @@ page 50101 "CSD Seminar Card"
                     Image = Comment;
                     ApplicationArea = All;
                     PromotedOnly = true;
+                    RunObject = page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
 
                 }
 

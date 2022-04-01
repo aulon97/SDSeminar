@@ -19,27 +19,35 @@ page 50113 "CSD Seminar Registration List"
             {
                 field("No."; Rec."No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Starting Date"; Rec."Starting Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Seminar No."; Rec."Seminar No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Seminar Name"; Rec."Seminar Name")
                 {
+                    ApplicationArea = All;
                 }
                 field(Status; Rec.Status)
                 {
+                    ApplicationArea = All;
                 }
                 field(Duration; Rec.Duration)
                 {
+                    ApplicationArea = All;
                 }
                 field("Maximum Participants"; Rec."Maximum Participants")
                 {
+                    ApplicationArea = All;
                 }
                 field("Room Code"; Rec."Room Code")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
