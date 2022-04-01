@@ -24,7 +24,10 @@ table 50104 "CSD Seminar Comment Line"
         {
             DataClassification = ToBeClassified;
             TableRelation = if ("Table Name" = const(Seminar))
-                                "CSD Seminar";
+                                "CSD Seminar"
+            else
+            if ("Table Name" = const("Seminar Registration Header"))
+                                "CSD Seminar Reg. Header";
             Caption = 'No.';
         }
 
@@ -60,7 +63,10 @@ table 50104 "CSD Seminar Comment Line"
         {
             Clustered = true;
         }
+
     }
+
+
 
 
     trigger OnInsert()
@@ -80,6 +86,20 @@ table 50104 "CSD Seminar Comment Line"
 
     trigger OnRename()
     begin
+
+    end;
+
+    procedure SetupNewLine()
+    var
+        SeminarCommentLine: Record "CSD Seminar Comment Line";
+    begin
+        SeminarCommentLine.SetRange("Table Name", "Table Name");
+        SeminarCommentLine.SetRange("No.", "No.");
+        SeminarCommentLine.SetRange("Document Line No.", "Document Line No.");
+        SeminarCommentLine.SetRange(Date, WorkDate);
+
+        if SeminarCommentLine.IsEmpty then
+            Date := WorkDate;
 
     end;
 
