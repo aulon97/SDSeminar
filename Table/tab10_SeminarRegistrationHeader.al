@@ -77,7 +77,7 @@ table 50110 "CSD Seminar Reg. Header"
         }
         field(5; "Instructor Code"; Code[10])
         {
-            TableRelation = Resource where(Type = const(Person));
+            TableRelation = Resource where(Type = const(Instructor));
             Caption = 'Instructor Code';
             DataClassification = ToBeClassified;
 
@@ -90,16 +90,14 @@ table 50110 "CSD Seminar Reg. Header"
         field(6; "Instructor Name"; Text[100])
         {
             CalcFormula = Lookup(Resource.Name where("No." = Field("Instructor Code"),
-                                                      Type = const(Person)));
+                                                      Type = const(Instructor)));
             Editable = false;
             FieldClass = FlowField;
             Caption = 'Instructor Name';
 
         }
-        field(7; Status; Option)
+        field(7; Status; Enum "Status")
         {
-            OptionCaption = 'Planning,Registration,Closed,Canceled';
-            OptionMembers = Planning,Registration,Closed,Canceled;
             Caption = 'Status';
             DataClassification = ToBeClassified;
         }
@@ -119,9 +117,9 @@ table 50110 "CSD Seminar Reg. Header"
             Caption = 'Minimum Partecipants';
             DataClassification = ToBeClassified;
         }
-        field(11; "Room Code"; Code[10])
+        field(11; "Room Code"; Code[10])//behet room resource no.
         {
-            TableRelation = Resource where(Type = const(Machine));
+            TableRelation = Resource where(Type = const(Room));
             Caption = 'Room Code';
             DataClassification = ToBeClassified;
 
@@ -350,7 +348,7 @@ table 50110 "CSD Seminar Reg. Header"
 
     trigger OnDelete();
     begin
-        if (CurrFieldNo > 0) then  //CurrFieldNo variabel qe kthen numrin fushes ku ndodhet kursori
+        if (CurrFieldNo > 0) then
             TestField(Status, Status::Canceled);
 
 
