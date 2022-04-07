@@ -19,16 +19,14 @@ table 50112 "CSD Seminar Charge"
             Caption = 'Line No.';
             DataClassification = ToBeClassified;
         }
-        field(3; Type; Option)
+        field(3; Type; Enum "Type")
         {
             Caption = 'Type';
-            OptionCaption = 'Resource,G/L Account';
-            OptionMembers = Resource,"G/L Account";
             DataClassification = ToBeClassified;
 
             trigger OnValidate();
             var
-                OldType: Integer;
+                OldType: Enum Type;
             begin
                 if Type <> xRec.Type then begin
                     OldType := Type;
