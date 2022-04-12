@@ -10,7 +10,7 @@ enum 50101 "Table Name"
     {
         Caption = 'Seminar Registration Header';
     }
-    value(2; "Posted seminar Registration Header")
+    value(2; "Posted Seminar Registration Header")
     {
         Caption = 'Posted seminar Registration Header';
     }

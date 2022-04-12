@@ -75,7 +75,7 @@ table 50110 "CSD Seminar Reg. Header"
             DataClassification = ToBeClassified;
 
         }
-        field(5; "Instructor Code"; Code[10])
+        field(5; "Instructor Resource No."; Code[10])
         {
             TableRelation = Resource where(Type = const(Instructor));
             Caption = 'Instructor Code';
@@ -89,7 +89,7 @@ table 50110 "CSD Seminar Reg. Header"
         }
         field(6; "Instructor Name"; Text[100])
         {
-            CalcFormula = Lookup(Resource.Name where("No." = Field("Instructor Code"),
+            CalcFormula = Lookup(Resource.Name where("No." = Field("Instructor Resource No."),
                                                       Type = const(Instructor)));
             Editable = false;
             FieldClass = FlowField;
@@ -117,7 +117,7 @@ table 50110 "CSD Seminar Reg. Header"
             Caption = 'Minimum Partecipants';
             DataClassification = ToBeClassified;
         }
-        field(11; "Room Code"; Code[10])//behet room resource no.
+        field(11; "Room Resource No."; Code[10])//behet room resource no.
         {
             TableRelation = Resource where(Type = const(Room));
             Caption = 'Room Code';
@@ -125,7 +125,7 @@ table 50110 "CSD Seminar Reg. Header"
 
             trigger OnValidate();
             begin
-                if "Room Code" = '' then begin
+                if "Room Resource No." = '' then begin
                     "Room Name" := '';
                     "Room Address" := '';
                     "Room Address 2" := '';
@@ -134,7 +134,7 @@ table 50110 "CSD Seminar Reg. Header"
                     "Room County" := '';
                     "Room Country/Reg. Code" := '';
                 end else begin
-                    SeminarRoom.GET("Room Code");
+                    SeminarRoom.GET("Room Resource No.");
                     "Room Name" := SeminarRoom.Name;
                     "Room Address" := SeminarRoom.Address;
                     "Room Address 2" := SeminarRoom."Address 2";
@@ -324,7 +324,7 @@ table 50110 "CSD Seminar Reg. Header"
         key(PK; "No.")
         {
         }
-        key(Key2; "Room Code")
+        key(Key2; "Room Resource No.")
         {
             SumIndexFields = Duration;
         }

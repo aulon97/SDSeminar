@@ -1,14 +1,13 @@
-page 50110 "CSD Seminar Registration"
+page 50134 "CSD Posted Seminar Reg."
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
-    //   Chapter 6 - Lab 3-1
+    //   Chapter 7 - Lab 3
     //     - Created new page
 
     Caption = 'Seminar Registration';
+    Editable = false;
     PageType = Document;
-    SourceTable = "CSD Seminar Reg. Header";
-    //UsageCategory = Tasks;
-
+    SourceTable = "CSD Posted Seminar Reg. Header";
 
     layout
     {
@@ -18,12 +17,7 @@ page 50110 "CSD Seminar Registration"
             {
                 field("No."; Rec."No.")
                 {
-                    AssistEdit = true;
-                    trigger OnAssistEdit();
-                    begin
-                        if Rec.AssistEdit(xRec) then
-                            CurrPage.UPDATE;
-                    end;
+                    ApplicationArea = All;
                 }
                 field("Starting Date"; Rec."Starting Date")
                 {
@@ -37,17 +31,12 @@ page 50110 "CSD Seminar Registration"
                 {
                     ApplicationArea = All;
                 }
-                field("Instructor Resource No."; Rec."Instructor Resource No.")
-                {
-                    ApplicationArea = All;
-                }
                 field("Instructor Name"; Rec."Instructor Name")
                 {
                     ApplicationArea = All;
                 }
                 field("Posting Date"; Rec."Posting Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("Document Date"; Rec."Document Date")
                 {
@@ -70,19 +59,12 @@ page 50110 "CSD Seminar Registration"
                     ApplicationArea = All;
                 }
             }
-
-            part(SeminarRegistrationLine; "CSD Seminar Reg. Subpage")
+            part(SeminarRegistrationLines; 50135)
             {
-                Caption = 'Lines';
-                SubPageLink = "Document No." = field("No.");
+                SubPageLink = "Document No." = Field("No.");
             }
-
             group("Seminar Room")
             {
-                field("Room Resource No."; Rec."Room Resource No.")
-                {
-                    ApplicationArea = All;
-                }
                 field("Room Name"; Rec."Room Name")
                 {
                     ApplicationArea = All;
@@ -130,15 +112,16 @@ page 50110 "CSD Seminar Registration"
         }
         area(factboxes)
         {
-            part("Seminar Details FactBox"; "CSD Seminar Details FactBox")
+            part("Seminar Details"; "CSD Seminar Details FactBox")
             {
-                SubPageLink = "No." = field("Seminar No.");
+                SubPageLink = "No." = Field("Seminar No.");
+                ApplicationArea = All;
             }
-
-            part("Customer Details FactBox"; "Customer Details FactBox")
+            part("Customer Details"; "Customer Details FactBox")
             {
-                Provider = SeminarRegistrationLine;
-                SubPageLink = "No." = field("Bill-to Customer No.");
+                Provider = SeminarRegistrationLines;
+                SubPageLink = "No." = Field("Bill-to Customer No.");
+                ApplicationArea = All;
             }
             systempart("Links"; Links)
             {
@@ -162,13 +145,13 @@ page 50110 "CSD Seminar Registration"
                     Image = Comment;
                     RunObject = Page 50106;
                     RunPageLink = "No." = Field("No.");
-                    RunPageView = where("Table Name" = Const("Seminar Registration Header"));
+                    RunPageView = where("Table Name" = Const("Posted Seminar Registration Header"));
                 }
                 action("&Charges")
                 {
                     Caption = '&Charges';
                     Image = Costs;
-                    RunObject = Page 50124;
+                    RunObject = Page "CSD Posted Seminar Charges";
                     RunPageLink = "Document No." = Field("No.");
                 }
             }
