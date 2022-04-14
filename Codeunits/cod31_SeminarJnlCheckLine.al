@@ -1,4 +1,4 @@
-codeunit 50132 "CSD Seminar Jnl.-Check Line"
+codeunit 50131 "CSD Seminar Jnl.-Check Line"
 // CSD1.00 - 2018-01-01 - D. E. Veloper
 //   Chapter 7 - Lab 2-1
 
@@ -21,53 +21,51 @@ codeunit 50132 "CSD Seminar Jnl.-Check Line"
 
 
     procedure RunCheck(var SemJnLine: Record "CSD Seminar Journal Line")
-    var
-        myInt: Integer;
+
     begin
-        with SemJnLine do begin
-            if EmptyLine then
-                exit;
+        if SemJnLine.EmptyLine() then
+            exit;
 
-            TestField("Posting Date");
-            TestField("Instructor Resource No.");
-            TestField("Seminar No.");
+        SemJnLine.TestField("Posting Date");
+        SemJnLine.TestField("Instructor Resource No.");
+        SemJnLine.TestField("Seminar No.");
 
-            Case "Charge Type" of
-                "Charge Type"::Instructor:
-                    TestField("Instructor Resource No.");
-                "Charge Type"::Room:
-                    TestField("Room Resource No.");
-                "Charge Type"::Participant:
-                    TestField("Participant Contact No.");
-            End;
+        Case SemJnLine."Charge Type" of
+            SemJnLine."Charge Type"::Instructor:
+                SemJnLine.TestField("Instructor Resource No.");
+            SemJnLine."Charge Type"::Room:
+                SemJnLine.TestField("Room Resource No.");
+            SemJnLine."Charge Type"::Participant:
+                SemJnLine.TestField("Participant Contact No.");
+        End;
 
-            if Chargeable then
-                TestField("Bill-to Customer No.");
+        if SemJnLine.Chargeable then
+            SemJnLine.TestField("Bill-to Customer No.");
 
-            if "Posting Date" = ClosingDate("Posting Date") then
-                FieldError("Posting Date", ClosingDateTxt);
+        if SemJnLine."Posting Date" = ClosingDate(SemJnLine."Posting Date") then
+            SemJnLine.FieldError("Posting Date", ClosingDateTxt);
 
-            if (AllowPostingTO = 0D) AND (AllowPostingFrom = 0D) then begin
-                if UserId <> '' then
-                    if UserSetup.GET(UserId) then begin
-                        AllowPostingFrom := UserSetup."Allow Posting From";
-                        AllowPostingTO := UserSetup."Allow Posting To";
-                    end;
-                if (AllowPostingFrom = 0D) and (AllowPostingTO = 0D)
-                then begin
-                    GLSetup.GET;
-                    AllowPostingFrom := GLSetup."Allow Posting From";
-                    AllowPostingTO := GLSetup."Allow Posting To";
+        if (AllowPostingTO = 0D) AND (AllowPostingFrom = 0D) then begin
+            if UserId <> '' then
+                if UserSetup.GET(UserId) then begin
+                    AllowPostingFrom := UserSetup."Allow Posting From";
+                    AllowPostingTO := UserSetup."Allow Posting To";
                 end;
-                if AllowPostingTO = 0D then
-                    AllowPostingTO := DMY2Date(31, 12, 9999);
+            if (AllowPostingFrom = 0D) and (AllowPostingTO = 0D)
+            then begin
+                GLSetup.GET;
+                AllowPostingFrom := GLSetup."Allow Posting From";
+                AllowPostingTO := GLSetup."Allow Posting To";
             end;
-            if ("Posting Date" < AllowPostingFrom) OR ("Posting Date" > AllowPostingTO) then
-                FieldError("Posting Date", PostingDateTxt);
-
-            if ("Document Date" <> 0D) then
-                if ("Document Date" = CLOSINGDATE("Document Date")) then
-                    FieldError("Document Date", PostingDateTxt);
+            if AllowPostingTO = 0D then
+                AllowPostingTO := DMY2Date(31, 12, 9999);
         end;
+        if (SemJnLine."Posting Date" < AllowPostingFrom) OR (SemJnLine."Posting Date" > AllowPostingTO) then
+            SemJnLine.FieldError("Posting Date", PostingDateTxt);
+
+        if (SemJnLine."Document Date" <> 0D) then
+            if (SemJnLine."Document Date" = CLOSINGDATE(SemJnLine."Document Date")) then
+                SemJnLine.FieldError("Document Date", PostingDateTxt);
+
     end;
 }
