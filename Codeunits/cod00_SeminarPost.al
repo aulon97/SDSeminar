@@ -2,12 +2,101 @@ codeunit 50100 "CSD Seminar-Post"
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 7 - Lab 5-2
-    //     - Created new codeunit
+
 
     TableNo = "CSD Seminar Reg. Header";
 
     trigger OnRun();
     begin
+        ClearAll();
+        SeminarRegHeader := Rec;
+
+        //Testojm fushat qe nuk duhet te jen boshe
+        SeminarRegHeader.TestField("Posting Date");
+        SeminarRegHeader.TestField("Document Date");
+        SeminarRegHeader.TestField("Seminar No.");
+        SeminarRegHeader.TestField(Duration);
+        SeminarRegHeader.TestField("Instructor Resource No.");
+        SeminarRegHeader.TestField("Room Resource No.");
+        SeminarRegHeader.TestField(Status, SeminarRegHeader.Status::Closed);
+
+        //Nese ska rreshta x dokument error
+        SeminarRegLine.Reset();
+        SeminarRegLine.SetRange("Document No.", Rec."No.");
+        if SeminarRegLine.Isempty then
+            Error(Text001);
+
+        //Tregon progresin e postimit
+        Window.Open('#1################################\\' + Text002);
+        Window.Update(1, StrSubstNo('%1 %2', Text003, Rec."No."));
+
+        //Nese Posting No. eshte bosh atehere Posting No. Series nuk duhet te jet boshe
+        if SeminarRegHeader."Posting No." = '' then begin
+            SeminarRegHeader.TestField("Posting No. Series");
+            SeminarRegHeader."Posting No." := NoSeriesMgt.GetNextNo(SeminarRegHeader."Posting No. Series", SeminarRegHeader."Posting Date", true);
+            SeminarRegHeader.modify;
+            Commit;
+        end;
+        SeminarRegLine.LockTable();
+
+        SourceCodeSetup.Get();
+        SourceCode := SourceCodeSetup."CSD Seminar";
+
+        //Inicializimi i Posted Seminar Reg. 
+
+        PstdSeminarRegHeader.Init();
+        PstdSeminarRegHeader.TransferFields("SeminarRegHeader");
+        PstdSeminarRegHeader."No." := SeminarRegHeader."No.";
+        PstdSeminarRegHeader."Seminar No." := SeminarRegHeader."Seminar No.";
+        PstdSeminarRegHeader."Source Code" := SourceCode;
+        PstdSeminarRegHeader."User Id" := UserId;
+        PstdSeminarRegHeader.Insert();
+
+        Window.Update(1, StrSubstNo(Text004, SeminarRegHeader."No.", PstdSeminarRegHeader."No."));
+
+        //Kopjimi i komenteve dhe chargeve
+
+        CopyCommentLines(SeminarCommentLine."Table Name"::"Seminar Registration Header", SeminarCommentLine."Table Name"::"Posted Seminar Registration Header", SeminarRegHeader."No.", PstdSeminarRegHeader."No.");
+        CopyCharges(SeminarRegHeader."No.", PstdSeminarRegHeader."No.");
+
+        LineCount := 0;
+        SeminarRegLine.Reset();
+        SeminarRegLine.SetRange("Document No.", Rec."No.");
+        if SeminarRegLine.FindSet() then begin
+            repeat
+            until SeminarRegLine.Next = 0;
+        end;
+
+        Window.Update(2, LineCount);
+        SeminarRegLine.TestField("Bill-to Customer No.");
+        SeminarRegLine.TestField("Participant Contact No.");
+        if not SeminarRegLine."To Invoice" then Begin
+            SeminarRegLine."Seminar Price" := 0;
+            SeminarRegLine."Line Discount %" := 0;
+            SeminarRegLine."Line Discount Amount" := 0;
+            SeminarRegLine.Amount := 0;
+        end;
+
+        //Postimi i seminar entry
+        PostSeminarJnlLine("Charge Type"::Participant);
+
+        //Insero posted seminar registration line 
+
+        PstdSeminarRegLine.Init();
+        PstdSeminarRegLine.TransferFields("SeminarRegLine");
+        PstdSeminarRegLine."Document No." := PstdSeminarRegHeader."No.";
+        PstdSeminarRegLine.Insert();
+
+        //Bej post charges
+        PostCharges();
+        //Bej Post instructor ne seminar ledger
+        PostSeminarJnlLine("Charge Type"::Instructor);
+        //Bej Post Seminar Room ne seminar ledger
+        PostSeminarJnlLine("Charge Type"::Room);
+
+        //Fshi registration header,lines,komente, dhe charges
+        Rec.Delete(true);
+
     end;
 
     var
@@ -42,7 +131,7 @@ codeunit 50100 "CSD Seminar-Post"
         Text007: Label 'The dimensions used in %1 are invalid. %2';
         Text008: Label 'The dimensions used in %1, line no. %2 are invalid. %3';
 
-    local procedure CopyCommentLines(FromDocumentType: Integer; ToDocumentType: Enum "Table Name"; FromNumber: Code[20]; ToNumber: Code[20]);
+    local procedure CopyCommentLines(FromDocumentType: Enum "Table Name"; ToDocumentType: Enum "Table Name"; FromNumber: Code[20]; ToNumber: Code[20]);
     begin
         SeminarCommentLine.Reset();
         SeminarCommentLine.SetRange("Table Name", FromDocumentType);
