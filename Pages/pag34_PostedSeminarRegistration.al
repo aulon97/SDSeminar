@@ -4,7 +4,7 @@ page 50134 "CSD Posted Seminar Reg."
     //   Chapter 7 - Lab 3
     //     - Created new page
 
-    Caption = 'Seminar Registration';
+    Caption = 'Posted Seminar Registration';
     Editable = false;
     PageType = Document;
     SourceTable = "CSD Posted Seminar Reg. Header";
@@ -154,6 +154,23 @@ page 50134 "CSD Posted Seminar Reg."
                     RunObject = Page "CSD Posted Seminar Charges";
                     RunPageLink = "Document No." = Field("No.");
                 }
+            }
+        }
+        area(Processing)
+        {
+            action("&Navigate")
+            {
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+                var
+                    Navigate: Page Navigate;
+                begin
+                    Navigate.SetDoc(Rec."Posting Date", Rec."No.");
+                    Navigate.Run();
+                end;
             }
         }
     }

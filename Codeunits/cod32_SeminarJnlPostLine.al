@@ -55,9 +55,9 @@ codeunit 50132 "CSD Seminar Jnl.-Post Line"
                 SeminarRegister."User ID" := UserId;
                 SeminarRegister.Insert();
             end;
-            SeminarRegister."To Entry No." := NextEntryNo;
-            SeminarRegister.Modify();
         end;
+        SeminarRegister."To Entry No." := NextEntryNo;
+        SeminarRegister.Modify();
 
         SeminarLedgerEntry.Init();
         SeminarLedgerEntry."Seminar No." := SeminarJnlLine."Seminar No.";

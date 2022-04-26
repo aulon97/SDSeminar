@@ -4,7 +4,8 @@ table 50118 "CSD Posted Seminar Reg. Header"
     //   Chapter 7 - Lab 3-1
 
     Caption = 'Posted Seminar Registration Header';
-
+    DrillDownPageId = "CSD Posted Seminar Reg. List";
+    LookupPageId = "CSD Posted Seminar Reg. List";
 
     fields
     {

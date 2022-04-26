@@ -62,7 +62,7 @@ page 50122 "CSD Seminar Registers"
             {
                 image = WarrantyLedger;
                 RunObject = codeunit "CSD Seminar Reg.-Show Ledger";
-
+                ApplicationArea = All;
             }
         }
     }
