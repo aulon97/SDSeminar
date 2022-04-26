@@ -121,6 +121,39 @@ page 50101 "CSD Seminar Card"
 
                 }
 
+                action("Ledger Entries")
+                {
+                    Caption = 'Ledger Entries';
+                    RunObject = Page "CSD Seminar Ledger Entries";
+                    RunPageLink = "Seminar No." = Field("No.");
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    ShortcutKey = "Ctrl + F7";
+                    Image = WarrantyLedger;
+                }
+
+                action("Registrations")
+                {
+                    caption = '&Registrations';
+                    RunObject = Page "CSD Seminar Registration List";
+                    RunPageLink = "Seminar No." = Field("No.");
+                    image = Timesheet;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                }
+            }
+        }
+
+        area(Processing)
+        {
+            action("Seminar Registration")
+            {
+                RunObject = page "CSD Seminar Registration";
+                RunPageLink = "Seminar No." = Field("No.");
+                RunPageMode = Create;
+                Image = NewTimesheet;
+                Promoted = true;
+                PromotedCategory = New;
             }
         }
     }
