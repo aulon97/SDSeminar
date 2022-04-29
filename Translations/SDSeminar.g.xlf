@@ -868,6 +868,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Reg. Header - Field No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3775708622 - Field 2682724073 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Printed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Reg. Header - Field No. Printed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3775708622 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Series</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1088,6 +1093,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Registration Line - Field To Invoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3673433698 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Seminar Report Selections</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Report Selections - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3673433698 - Field 1272245069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Report Selections - Field Report ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3673433698 - Field 4101026147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Report Selections - Field Report Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3673433698 - Field 4154341761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sequence</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Report Selections - Field Sequence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3673433698 - Field 1510562767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usage</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Report Selections - Field Usage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3673433698 - Field 1510562767 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table CSD Seminar Report Selections - Field Usage - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Table 4035078560 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Seminar Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1198,6 +1233,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CSD Posted Seminar Reg. - Action Co&amp;mments - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2994756472 - Action 1405007275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Navigate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Posted Seminar Reg. - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3186773354 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Seminar Registration List</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1263,10 +1303,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Ledger Entries - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2466105384 - Action 1405007275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Navigate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Ledger Entries - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 729898515 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Seminar List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 729898515 - Action 1940178401 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ledger Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar List - Action Ledger Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 729898515 - Action 3243854 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Registrations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar List - Action Registrations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4127214982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines</source>
@@ -1292,6 +1347,11 @@
           <source>&amp;Post</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Registration - Action &amp;Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3811004094 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Registration - Action &amp;Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3811004094 - Action 1570223100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Seminar Registration</source>
@@ -1333,10 +1393,105 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Registration List - Action Co&amp;mments - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3350628503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Seminar Report Selection</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Report Selection - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3350628503 - Control 887890843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usage</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Report Selection - Control ReportUsage2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3350628503 - Control 887890843 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Report Selection - Control ReportUsage2 - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Page 4035078560 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Seminar Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Seminar Invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please enter the posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please enter the document date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating Seminar Invoices...\\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.      #1##########\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No.   #2##########\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text004</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The number of invoice(s) created is %1.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>not all the invoices were posted. A total of %1 invoices were not posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text006</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is nothing to invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - NamedType Text007</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - Control 15388435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calc. Inv. Discount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - Control CalcInvoiceDiscount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - Control 3672432318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - Control docDateReq - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - Control 2878599854 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - Control PostingDateReq - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2741080915 - Control 357831326 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Seminar Invoices - Control PostInvoices - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 206864090 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Seminar Reg.-Participant List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CSD SeminarRegParticipantList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 206864090 - ReportLabel 300997005" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Seminar Registration List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CSD SeminarRegParticipantList - ReportLabel SeminarRegistrationHeaderCap</note>
         </trans-unit>
         <trans-unit id="PageExtension 3747827805 - Control 2205917413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1580859378">
           <source>Room</source>

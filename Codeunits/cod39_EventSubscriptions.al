@@ -39,14 +39,14 @@ codeunit 50139 "CSD EventSubcriptions"
             DocumentEntry."Entry No." := NextEntryNo;
             DocumentEntry."Table ID" := Database::"CSD Posted Seminar Reg. Header";
             DocumentEntry."Document Type" := "Document Entry Document Type"::Quote;
-            DocumentEntry."Table Name" := CopyStr(PostedSeminarRegHeader.TableCaption, 1, MAXSTRLEN(PostedSeminarRegHeader));
+            DocumentEntry."Table Name" := CopyStr(PostedSeminarRegHeader.TableCaption, 1, MaxStrLen(DocumentEntry."Table Name"));
             DocumentEntry."No. of Records" := DocNoOfRecords;
             DocumentEntry.Insert();
         end;
 
         if SeminarLedgerEntry.ReadPermission then begin
             SeminarLedgerEntry.Reset();
-            SeminarLedgerEntry.SetFilter("Entry No.", DocNoFilter);
+            SeminarLedgerEntry.SetFilter("Document No.", DocNoFilter);
             SeminarLedgerEntry.SetFilter("Posting Date", PostingDateFilter);
             DocNoOfRecords := SeminarLedgerEntry.Count;
 
@@ -58,9 +58,9 @@ codeunit 50139 "CSD EventSubcriptions"
                 NextEntryNo := 1;
             DocumentEntry.Init();
             DocumentEntry."Entry No." := NextEntryNo;
-            DocumentEntry."Table ID" := Database::"CSD Posted Seminar Reg. Header";
+            DocumentEntry."Table ID" := Database::"CSD Seminar Ledger Entry";
             DocumentEntry."Document Type" := "Document Entry Document Type"::Quote;
-            DocumentEntry."Table Name" := CopyStr(SeminarLedgerEntry.TableCaption, 1, MAXSTRLEN(SeminarLedgerEntry));
+            DocumentEntry."Table Name" := CopyStr(SeminarLedgerEntry.TableCaption, 1, MAXSTRLEN(DocumentEntry."Table Name"));
             DocumentEntry."No. of Records" := DocNoOfRecords;
             DocumentEntry.Insert();
         end;
