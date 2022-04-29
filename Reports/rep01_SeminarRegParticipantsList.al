@@ -60,6 +60,13 @@ report 50101 "CSD SeminarRegParticipantList"
                     IncludeCaption = true;
                 }
             }
+
+            trigger OnPostDataItem()
+
+            begin
+                if not IsReportInPreviewMode then
+                    CODEUNIT.Run(CODEUNIT::"CSD SeminarRegPrinted");
+            end;
         }
 
         dataitem("Company Information"; "Company Information")
@@ -75,4 +82,11 @@ report 50101 "CSD SeminarRegParticipantList"
     {
         SeminarRegistrationHeaderCap = 'Seminar Registration List';
     }
+
+    local procedure IsReportInPreviewMode(): Boolean
+    var
+        MailManagement: Codeunit "Mail Management";
+    begin
+        exit(CurrReport.Preview or MailManagement.IsHandlingGetEmailBody);
+    end;
 }

@@ -3,7 +3,8 @@ page 50123 "CSD Seminar Report Selection"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 9 - Lab 1
     //     - Created new page
-
+    ApplicationArea = All;
+    UsageCategory = Lists;
     Caption = 'Seminar Report Selection';
     PageType = Worksheet;
     SaveValues = true;

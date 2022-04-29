@@ -13,11 +13,12 @@ report 50100 "CSD Create Seminar Invoices"
     {
         dataitem("Seminar Ledger Entry"; "CSD Seminar Ledger Entry")
         {
+            DataItemTableView = sorting("Entry No.") where("Bill-to Customer No." = filter(<> ''));
 
             trigger OnAfterGetRecord();
             begin
                 if "Bill-to Customer No." <> Customer."No." then
-                    Customer.Get("Bill-to Customer No.");
+                    if Customer.Get("Bill-to Customer No.") then;
 
                 if Customer.Blocked in [Customer.Blocked::All, Customer.Blocked::Invoice] then begin
                     NoofSalesInvErrors := NoofSalesInvErrors + 1;
@@ -26,9 +27,9 @@ report 50100 "CSD Create Seminar Invoices"
                         Window.Update(1, "Bill-to Customer No.");
                         if SalesHeader."No." <> '' then
                             FinalizeSalesInvoiceHeader;
-
+                        InsertSalesInvoiceHeader;
                     end;
-                    InsertSalesInvoiceHeader;
+
                     Window.Update(2, "Seminar Registration No.");
 
                     case Type of

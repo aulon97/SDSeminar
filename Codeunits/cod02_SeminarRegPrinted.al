@@ -10,6 +10,5 @@ codeunit 50102 "CSD SeminarRegPrinted"
         Commit;
     end;
 
-    var
-        myInt: Integer;
+
 }

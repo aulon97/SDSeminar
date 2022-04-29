@@ -346,6 +346,7 @@ table 50110 "CSD Seminar Reg. Header"
         SeminarRoom: Record Resource;
         SeminarSetup: Record "CSD Seminar Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
+
         Text001: Label 'You cannot delete the Seminar Registration, because there is at least one %1 where %2=%3.';
         Text002: Label 'You cannot change the %1, because there is at least one %2 with %3=%4.';
         Text004: Label 'This Seminar is for %1 participants. \The selected Room has a maximum of %2 participants \Do you want to change %3 for the Seminar from %4 to %5?';

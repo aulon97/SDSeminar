@@ -77,6 +77,7 @@ codeunit 50132 "CSD Seminar Jnl.-Post Line"
         SeminarLedgerEntry."Room Resource No." := SeminarJnlLine."Room Resource No.";
         SeminarLedgerEntry."Instructor Resource No." := SeminarJnlLine."Instructor Resource No.";
         SeminarLedgerEntry."Starting Date" := SeminarJnlLine."Starting Date";
+        SeminarLedgerEntry."Bill-to Customer No." := SeminarJnlLine."Bill-to Customer No.";
         SeminarLedgerEntry."Seminar Registration No." := SeminarJnlLine."Seminar Registration No.";
         SeminarLedgerEntry."Res. Ledger Entry No." := SeminarJnlLine."Res. Ledger Entry No.";
         SeminarLedgerEntry."Source Type" := SeminarJnlLine."Source Type";
