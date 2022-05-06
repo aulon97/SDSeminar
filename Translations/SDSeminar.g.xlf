@@ -1583,6 +1583,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Registration List - Action &amp;Post - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3748999164 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page CSD Seminar Registration List - Action &amp;Print - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3748999164 - Action 1570223100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Seminar Registration</source>
           <note from="Developer" annotates="general" priority="2"></note>

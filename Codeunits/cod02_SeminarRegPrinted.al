@@ -1,4 +1,4 @@
-codeunit 50102 "CSD SeminarRegPrinted"
+codeunit 50102 "CSD     "
 {
     TableNo = "CSD Seminar Reg. Header";
 

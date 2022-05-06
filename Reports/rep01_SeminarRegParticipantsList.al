@@ -7,6 +7,7 @@ report 50101 "CSD SeminarRegParticipantList"
     DefaultLayout = RDLC;
     RDLCLayout = './Layouts/SeminarRegParticipantsList.rdl';
 
+
     dataset
     {
         dataitem(SeminarRegistrationHeader; "CSD Seminar Reg. Header")
@@ -61,12 +62,6 @@ report 50101 "CSD SeminarRegParticipantList"
                 }
             }
 
-            trigger OnPostDataItem()
-
-            begin
-                if not IsReportInPreviewMode then
-                    CODEUNIT.Run(CODEUNIT::"CSD SeminarRegPrinted");
-            end;
         }
 
         dataitem("Company Information"; "Company Information")
